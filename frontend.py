@@ -2,18 +2,35 @@ import tkinter as tk
 from tkinter import simpledialog
 from tkinter import font as tkFont
 import webbrowser
+import pandas as pd
 
 
 def open_link(url):
     webbrowser.open_new(url)
 
 def recommend_products(responses):
-    # Example logic to recommend products
-    return [("Product 1", "http://example.com/product1"),
-            ("Product 2", "http://example.com/product2"),
-            ("Product 3", "http://example.com/product3"),
-            ("Product 4", "http://example.com/product4"),
-            ("Product 5", "http://example.com/product5")]
+    # # Example logic to recommend products
+    # return [("Product 1", "http://example.com/product1"),
+    #         ("Product 2", "http://example.com/product2"),
+    #         ("Product 3", "http://example.com/product3"),
+    #         ("Product 4", "http://example.com/product4"),
+    #         ("Product 5", "http://example.com/product5")]
+
+    data_path = 'data.xlsx'
+    df = pd.read_excel(data_path)
+
+    skin_type, skin_concern, product_type = responses[1], responses[2], responses[3]  # Assuming these are the order of questions
+
+    # Filter the DataFrame based on responses
+    filtered_df = df[(df['suitable skin types'] == skin_type) & (df['skin concerns'] == skin_concern) & (df['product_type'] == product_type)]
+    
+    # Randomly pick 3 products, or all products if there are less than 3
+    recommended = filtered_df.sample(n=3) if len(filtered_df) > 3 else filtered_df
+
+    # Extract product names and URLs
+    recommendations = [(row['product_name'], row['Link']) for index, row in recommended.iterrows()]
+
+    return recommendations
 
 def show_question(question, options, next_function):
     question_window = tk.Toplevel(root, bg='white')
@@ -53,7 +70,7 @@ def display_recommendations():
     top = tk.Toplevel(root, bg='white')
     top.title("Your Recommendations")
     for product_name, product_url in recommended_products:
-        link = tk.Label(top, text=product_name, fg="blue", cursor="hand2", bg='white')
+        link = tk.Label(top, text=product_name, fg="blue", cursor="hand2", bg='black')
         link.pack()
         link.bind("<Button-1>", lambda e, url=product_url: open_link(url))
         
@@ -106,9 +123,9 @@ questions = [
     "What type of product are you looking for?"
 ]
 
-age_options = ["Select an option","18-25", "26-35", "36-45", "46-55", "55+"]  # Example age ranges
+age_options = ["Select an option","18-25", "26-35", "36-45", "46-55", "55+"]
 skin_type_options = ["Select an option", "Normal", "Oily", "Dry", "Combination of 2 or more"]
-skin_concern_options = ["Select an option", "Acne", "Wrinkles", "Dryness", "Sensitivity"]
+skin_concern_options = ["Select an option", "Acne", "Wrinkles", "Dryness", "Dullness"]
 product_type_options = ["Select an option", "Toner", "Moisturizer", "Suncreen", "Cleanser", "Exfoliant"]
 
 responses = []
