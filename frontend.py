@@ -120,7 +120,8 @@ questions = [
     "What is your age?",
     "What is your primary skin type?",
     "What is your primary skin concern?",
-    "What type of product are you looking for?"
+    "What type of product are you looking for?",
+    "blah blah blah"
 ]
 
 age_options = ["Select an option","18-25", "26-35", "36-45", "46-55", "55+"]
