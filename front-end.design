@@ -5,6 +5,7 @@ import webbrowser
 import pandas as pd
 import sqlite3
 import random
+from tkinter import *
 
 
 def open_link(url):
