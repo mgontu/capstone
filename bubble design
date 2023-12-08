@@ -90,17 +90,8 @@ def recommend_products(responses):
     # return recommendations
 
 def show_question(question, options, next_function):
-    question_window = tk.Toplevel(root)
+     question_window = tk.Toplevel(root, bg='white')
     question_window.title("Question")
-
-    # Load the background image
-    bg_photo = PhotoImage("head.png")
-    bg_photo=bg_photo.subsample(100)
-
-    # Display the background image
-    bg_label = tk.Label(question_window, image=bg_photo)
-    bg_label.photo = bg_photo  # Keep a reference to avoid garbage collection
-    bg_label.place(x=0, y=0)
 
     # Set the font to match the opening page and text color to black
     question_label = tk.Label(question_window, text=question, bg='white', fg='black', font=description_font, justify='center')
