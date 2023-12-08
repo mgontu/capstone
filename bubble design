@@ -196,7 +196,11 @@ description_label_2 = tk.Label(center_frame, text="Dermadive's Skin Quiz is your
                              font=description_font_2, bg='white', fg='black', justify='center', wraplength=window_width - 100)
 description_label_2.pack()
 # Start button
-start_button = tk.Button(center_frame, text="Take the Quiz", command=show_recommendations, font=button_font, bg='white', fg='green', bd=0, highlightthickness=0)
+
+photo = PhotoImage(file = "circle.png") 
+photoimage = photo.subsample(5, 5) 
+
+start_button = tk.Button(center_frame, text="Take the Quiz", command=show_recommendations, font=button_font,  image = photoimage,  compound = CENTER)
 start_button.pack(pady=(10, 20))
 
 questions = [
