@@ -156,7 +156,7 @@ root.geometry(f"{window_width}x{window_height}")
 
 bg = PhotoImage(file = "cover.png") 
 label1 = Label( root, image = bg) 
-label1.place(x = 0, y = 0) 
+label1.place(x = -525, y = -500) 
 
 # Customize fonts
 title_font = tkFont.Font(family="Quicksand", size=30, weight="bold")
