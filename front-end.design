@@ -107,7 +107,7 @@ def show_question(question, options, next_function):
     
     # Style the next button to match the opening page
     next_button = tk.Button(question_window, text="Next", command=lambda: handle_answer(question_window, answer, next_function))
-    next_button.config(highlightthickness=0, font=button_font, bg='white', fg='green')
+    next_button.config(highlightthickness=0, font=button_font, bg='white', fg='pink')
     next_button.pack(padx=10, pady=20)  # Adjust padding as needed
 
 def handle_answer(window, answer, next_function):
@@ -186,7 +186,7 @@ description_label_2 = tk.Label(center_frame, text="Dermadive's Skin Quiz is your
                              font=description_font_2, bg='white', fg='black', justify='center', wraplength=window_width - 100)
 description_label_2.pack()
 # Start button
-start_button = tk.Button(center_frame, text="Take the Quiz", command=show_recommendations, font=button_font, bg='white', fg='green', bd=0, highlightthickness=0)
+start_button = tk.Button(center_frame, text="Take the Quiz", command=show_recommendations, font=button_font, bg='white', fg='pink', bd=0, highlightthickness=0)
 start_button.pack(pady=(10, 20))
 
 questions = [
