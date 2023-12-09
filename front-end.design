@@ -154,9 +154,24 @@ window_width = 1000
 window_height = 700
 root.geometry(f"{window_width}x{window_height}")
 
+def on_resize(event):
+    # Get the window size
+    window_width = event.width
+    window_height = event.height
+    
+    # Resize the background image
+    resized_bg = bg.subsample(int(bg.width() / window_width), int(bg.height() / window_height))
+    
+    # Update the label with the resized image
+    label1.config(image=resized_bg)
+    label1.image = resized_bg 
+
 bg = PhotoImage(file = "cover.png") 
-label1 = Label( root, image = bg) 
-label1.place(x = -50, y = -100) 
+label1 = Label(root, image = bg) 
+label1.place(x=0, y=0, relwidth=1, relheight=1)  # Cover the entire window
+
+# Bind the resize event to the on_resize function
+root.bind("<Configure>", on_resize)
 
 # Customize fonts
 title_font = tkFont.Font(family="Quicksand", size=30, weight="bold")
