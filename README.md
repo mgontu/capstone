@@ -23,15 +23,27 @@ The motivation behind this project comes from the observance of the overwhelming
 
 ### Results
 
-First, introduce and motivate your chosen method, and explain how it contributes to solving the research question/business problem.
+The  project has designed a program to offer personalized skincare recommendations to users based on their individual preferences, fulfilling its intended purpose. The program efficiently categorizes suggestions into three distinct groups, accommodating various combinations of user preferences. The program also calculates and displays the price per ounce of each product that’s selected to  display these results in a bar graph. This bar graph then appears in the final pop-up window of the quiz, so users can immediately compare skin products as they assess their options. 
 
-Second, summarize your results concisely. Make use of subheaders where appropriate.
 
 
 
 ## Running instructions
+### Dependencies
 
-Explain to potential users how to run/replicate your workflow. If necessary, touch upon the required input data, which secret credentials are required (and how to obtain them), which software tools are needed to run the workflow (including links to the installation instructions), and how to run the workflow.
+- Jupyter Notebook. [Installation Guide](https://jupyter.org/install).
+
+### Associated files
+- Download data.xslx, and save with the same title
+
+### Instructions
+- Open Jupyter Notebook.
+- Upload the capstone.ipynb file.
+- Upload the data.xslx file.
+- Click `shift` and `enter` to run.
+
+
+
 
 ### Repository structure
 
